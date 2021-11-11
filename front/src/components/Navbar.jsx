@@ -1,12 +1,14 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NavbarWrapper = styled.ul`
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    margin-left: 150px;
-    margin-right: 120px;
+    margin-top: 1em;
+    margin-left: 7em;
+    margin-right: 8em;
 
     .active a {
         color: #04FA6D;
@@ -18,7 +20,7 @@ const NavbarWrapper = styled.ul`
 
     .CV {
         background-color: green;
-        margin-left: 40px;
+        margin-left: 4em;
     }
 `;
 
@@ -42,18 +44,18 @@ const Navbar = (props) => {
 
     const liElems = props.elems.map((elem, i) => {
         if (i === 0) {
-            return <LiWrapper key={elem.id} className={ props.active === elem.id ? "active home" : "home" }><AWrapper href={elem.url}>
+            return <Link onClick={() => props.setActive(elem.id)} to={elem.url}><LiWrapper key={elem.id} className={ props.active === elem.id ? "active home" : "home" }><AWrapper>
                 {elem.title}
-            </AWrapper></LiWrapper>
+            </AWrapper></LiWrapper></Link>
         }
         if (i === 1) {
-            return <LiWrapper key={elem.id} className={ props.active === elem.id ? "active CV" : "CV" }><AWrapper href={elem.url}>
+            return <Link to={elem.url}><LiWrapper key={elem.id} className={ props.active === elem.id ? "active CV" : "CV" }><AWrapper>
                 {elem.title}
-            </AWrapper></LiWrapper>
+            </AWrapper></LiWrapper></Link>
         }
-        return <LiWrapper key={elem.id} className={ props.active === elem.id ? "active" : "" }><AWrapper href={elem.url}>
+        return <Link onClick={() => props.setActive(elem.id)} to={elem.url}><LiWrapper key={elem.id} className={ props.active === elem.id ? "active" : "" }><AWrapper>
             {elem.title}
-        </AWrapper></LiWrapper>
+        </AWrapper></LiWrapper></Link>
     })
     return <NavbarWrapper>
         { liElems }
