@@ -1,30 +1,4 @@
-import styled from "styled-components";
-
-const PythonIcon = styled.img`
-    width: 100px;
-    height: 100px;
-    margin-bottom: 50px;
-`;
-
-const ReactIcon = styled.img`
-    margin-left: 70px;
-    margin-bottom: 50px;
-    width: 100px;
-    height: 100px;
-`;
-
-const HomeWrapper = styled.div`
-    padding-left: 8em;
-    padding-top: 2em;
-
-    .stat {
-        margin-left: 10px;
-    }
-
-    .lastLine {
-        margin-bottom: 50px;
-    }
-`;
+import { HomeWrapper, ReactIcon, PythonIcon } from '../components/GlobalStyles';
 
 const Home = (props) => {
 

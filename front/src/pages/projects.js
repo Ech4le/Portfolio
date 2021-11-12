@@ -1,7 +1,11 @@
+import { HomeWrapper } from '../components/GlobalStyles';
+
 const Projects = () => {
-    return <h1>
-        Hello world!
-    </h1>
+    return <HomeWrapper>
+        <h1>
+            ASD
+        </h1>
+    </HomeWrapper>
 }
 
 export default Projects;

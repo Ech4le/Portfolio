@@ -1,19 +1,15 @@
-import Navbar from './components/Navbar';
-import Home from './pages/home';
-import Projects from './pages/projects';
-import styled from 'styled-components';
+import { useState } from 'react';
 import {
 	BrowserRouter,
 	Routes,
 	Route
 } from "react-router-dom";
-import { useState } from 'react';
+import { MainWrapper } from './components/GlobalStyles';
+import Navbar from './components/Navbar';
+import Home from './pages/home';
+import Contact from "./pages/contact";
+import Projects from './pages/projects';
 import "./App.css"
-
-const MainWrapper = styled.main`
-	padding-left: 6em;
-	padding-right: 6em;
-`;
 
 const App = () => {
 	const [active, setActive] = useState(0);
@@ -37,6 +33,7 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<Home stats={stats}/>} />
 					<Route path="/projects" element={<Projects />} />
+					<Route path="/contact" element={<Contact />} />
 				</Routes>
 			</MainWrapper>
 		</BrowserRouter>
