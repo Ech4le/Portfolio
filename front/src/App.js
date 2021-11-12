@@ -22,7 +22,13 @@ const App = () => {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             link: "#",
 			os: false,
-            image: Raspberry
+            image: Raspberry,
+            galery: [
+                { id: 0, image: Raspberry, description: "Description of image.",    dt: "2020-01-01 11:30" },
+                { id: 1, image: Raspberry, description: "Description of image1.",   dt: "2020-01-01 11:30" },
+                { id: 2, image: Raspberry, description: "Description of image2.",   dt: "2020-01-01 11:30" },
+                { id: 3, image: Raspberry, description: "Description of image3.",   dt: "2020-01-01 11:30" },
+            ]
         },
         { 
             id: 1, 
@@ -30,14 +36,16 @@ const App = () => {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             link: "#",
 			os: false,
-            image: Raspberry
+            image: Raspberry,
+            galery: []
         },
         { 
             id: 2, 
             name: "Good project", 
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             link: "#",
-            image: Raspberry
+            image: Raspberry,
+            galery: []
         },
         { 
             id: 3, 
@@ -45,7 +53,8 @@ const App = () => {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             link: "#",
 			os: false,
-            image: Raspberry
+            image: Raspberry,
+            galery: []
         },
         { 
             id: 4, 
@@ -53,14 +62,23 @@ const App = () => {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             link: "#",
 			os: true,
-            image: Raspberry
+            image: Raspberry,
+            galery: []
         },
     ]
 
-	const stats = {
-		os_packages: 2,
-		nos_packages: 5
-	}
+	let stats = {
+		os_packages:    0,
+		nos_packages:   0
+	};
+
+    for (let i = 0; i < data.length; i ++) {
+        if (data[i].os) {
+            stats.os_packages += 1
+        } else {
+            stats.nos_packages += 1
+        }
+    }
 
 	return (
 		<BrowserRouter>
