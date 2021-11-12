@@ -1,15 +1,6 @@
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
-
-const DescriptionButton = styled.p`
-    text-decoration: none;
-    color: #0F0;
-    background-color: #000;
-    border: 1px solid #0F0;
-    padding: 16px;
-    margin-bottom: 100px;
-    display: inline-block;
-`;
+import { DescriptionButton } from "./GlobalStyles";
 
 const ProjectDescription = styled.p`
     margin-bottom: 26px;
@@ -43,10 +34,21 @@ const ProjectImage = styled.img`
 `;
 
 const Project = (props) => {    
+    const shrink_value = 400;
+
+    const shrink_description = (desc) => {
+        var result = desc.substring(0, shrink_value);
+        result += "...";
+        return <ProjectDescription>{result}</ProjectDescription>
+    }
+
     return <ProjectWrapper>
         <div className="one">
             <h2>{props.name}</h2>
-            <ProjectDescription>{props.description}</ProjectDescription>
+            { props.description.length > shrink_value 
+                ? shrink_description(props.description) 
+                : <ProjectDescription>{props.description}</ProjectDescription>
+            }
             <Link to={props.link}>
                 <DescriptionButton>Details</DescriptionButton>
             </Link>

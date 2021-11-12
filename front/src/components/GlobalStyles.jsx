@@ -47,53 +47,29 @@ const NavbarHolder = styled.div`
     border-bottom: .5px solid #383838;
 `;
 
-const NavbarWrapper = styled.ul`
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    margin-top: 1em;
-    margin-left: 7em;
-    margin-right: 18em;
-
-    .active span {
-        color: #04FA6D;
-    }
-
-    .home {
-        float: left;
-    }
-
-    .CV {
-        border-radius: 5px;
-        background-color: green;
-        margin-left: 4em;
-    }
-
-    .CV:hover {
-        background-color: green;
-    }
-
-`;
-
-const LiWrapper = styled.li`
-    float: right;
-`;
-
-const InnerWrapper = styled.span`
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-
-    :hover:not(.CV) {
-        color: #0F0;
-    }
-`;
 
 const MainWrapper = styled.main`
 	padding-left: 6em;
 	padding-right: 6em;
+`;
+
+const DescriptionButton = styled.p`
+    text-decoration: none;
+    color: #0F0;
+    background-color: #000;
+    border: 1px solid #0F0;
+    padding: 16px;
+    margin-bottom: 100px;
+    display: inline-block;
+    cursor: pointer;
+
+    :hover {
+        background-color: #000;
+        border: 1px solid #FFF;
+        color: #FFF;
+        transition: color 0.25s ease;
+        transition: border 0.5s ease;
+    }
 `;
 
 export {
@@ -101,9 +77,7 @@ export {
     Link,
     PythonIcon,
     ReactIcon,
-    NavbarWrapper,
-    LiWrapper,
-    InnerWrapper,
     MainWrapper,
-    NavbarHolder
+    NavbarHolder,
+    DescriptionButton
 }

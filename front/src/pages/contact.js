@@ -4,7 +4,7 @@ const Contact = () => {
     return <HomeWrapper>
         <h1>Contact me: </h1>
         <p>
-            <Link href="https://github.com/Ech4le"><i style={{fontSize:'34px', marginRight: '20px'}} class="fa fa-github" aria-hidden="true" /> Ech4le </Link>
+            <Link href="https://github.com/Ech4le"><i style={{fontSize:'34px', marginRight: '20px'}} className="fa fa-github" aria-hidden="true" /> Ech4le </Link>
         </p>
         <p>
             <i style={{fontSize:'34px', marginRight: '20px'}} class="fa fa-envelope-o" aria-hidden="true"></i> eclipse.nsl@gmail.com

@@ -1,5 +1,21 @@
 import { Link } from 'react-router-dom';
-import { NavbarWrapper, LiWrapper, InnerWrapper } from '../components/GlobalStyles';
+import styled from 'styled-components';
+import NavbarHome from './NavbarHome';
+import NavbarItem from './NavbarItem';
+import NavbarCV from './NavbarCV';
+
+const NavbarWrapper = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 1em;
+    margin-left: 7em;
+    margin-right: 18em;
+
+    .active span {
+        color: #04FA6D;
+    }
+`;
 
 const Navbar = (props) => {
 
@@ -7,37 +23,32 @@ const Navbar = (props) => {
         props.setActive(id);
     }
 
-    const liElems = props.elems.map((elem, i) => {
-        if (i === 0) {
-            return <Link key={elem.id} onClick={() => handleClick(elem.id)} to={elem.url}>
-                <LiWrapper className={ props.active === elem.id ? "active home" : "home" }><InnerWrapper>
-                    { elem.icon !== undefined 
-                    ? <i style={{fontSize:'34px', marginRight: '20px'}} class={elem.icon} aria-hidden="true" />
-                    : ""
-                    }
-                {elem.title}
-            </InnerWrapper></LiWrapper></Link>
-        }
-        if (i === 1) {
-            return <Link key={elem.id} to={elem.url}><LiWrapper className={ props.active === elem.id ? "active CV cv" : "CV cv" }><InnerWrapper>
-                { elem.icon !== undefined 
-                ? <i style={{fontSize:'28px', marginRight: '18px'}} class={elem.icon} aria-hidden="true" />
-                : ""
-                }
-                {elem.title}
-            </InnerWrapper></LiWrapper></Link>
-        }
-        return <Link key={elem.id} onClick={() => handleClick(elem.id)} to={elem.url}>
-            <LiWrapper className={ props.active === elem.id ? "active" : "" }><InnerWrapper>
-                { elem.icon !== undefined 
-                ? <i style={{fontSize:'28px', marginRight: '18px'}} class={elem.icon} aria-hidden="true" />
-                : ""
-                }
-                {elem.title}
-        </InnerWrapper></LiWrapper></Link>
-    })
     return <NavbarWrapper>
-        { liElems }
+        <Link onClick={() => handleClick(0)} to={"/"}>
+        <NavbarHome active={props.active}>
+            Home
+        </NavbarHome>
+        </Link>
+        <Link to={"/cv"}>
+            <NavbarCV>
+                Get CV
+            </NavbarCV>
+        </Link>
+        <Link onClick={() => handleClick(2)} to={"/contact"}>
+            <NavbarItem  active={props.active} id={2} icon="fa fa-address-book">
+                Contact
+            </NavbarItem>
+        </Link>
+        <Link onClick={() => handleClick(3)} to={"/blog"}>
+            <NavbarItem  active={props.active} id={3} icon="fa fa-bookmark">
+                Blog
+            </NavbarItem>
+        </Link>
+        <Link onClick={() => handleClick(4)} to={"/projects"}>
+            <NavbarItem  active={props.active} id={4} icon="fa fa-bug">
+                Projects
+            </NavbarItem>
+        </Link>
     </NavbarWrapper>
 }
 
