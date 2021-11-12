@@ -41,7 +41,6 @@ const NavbarHolder = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    padding-left: 6em;
     width: 100%;
     background-color: #202020;
     border-bottom: .5px solid #383838;
