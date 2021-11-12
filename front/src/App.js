@@ -15,11 +15,11 @@ import "./App.css"
 const App = () => {
 	const [active, setActive] = useState(0);
 	const elems = [
-		{ id: 0, title: "Home", url: "/" },
-		{ id: 1, title: "Get CV", url: "/cv" },
-		{ id: 2, title: "Contact", url: "/contact" },
-		{ id: 3, title: "Blog", url: "/blog" },
-		{ id: 4, title: "Projects", url: "/projects" },
+		{ id: 0, title: "Home", url: "/", icon: "fa fa-bolt" },
+		{ id: 1, title: "Get CV", url: "/cv", icon: "fa fa-book" },
+		{ id: 2, title: "Contact", url: "/contact", icon: "fa fa-address-book" },
+		{ id: 3, title: "Blog", url: "/blog", icon: "fa fa-bookmark" },
+		{ id: 4, title: "Projects", url: "/projects", icon: "fa fa-bug" },
 	];
 
 	const stats = {

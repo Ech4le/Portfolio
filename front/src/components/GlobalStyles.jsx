@@ -3,7 +3,7 @@ import styled from "styled-components";
 const HomeWrapper = styled.div`
     margin-top: 2em;
     padding-left: 8em;
-    padding-top: 2em;
+    padding-top: 4em;
 
     .stat {
         margin-left: 10px;
@@ -40,8 +40,11 @@ const Link = styled.a`
 const NavbarHolder = styled.div`
     position: fixed;
     top: 0;
+    left: 0;
+    padding-left: 6em;
     width: 100%;
-    background-color: #000;
+    background-color: #202020;
+    border-bottom: .5px solid #383838;
 `;
 
 const NavbarWrapper = styled.ul`
@@ -61,9 +64,15 @@ const NavbarWrapper = styled.ul`
     }
 
     .CV {
+        border-radius: 5px;
         background-color: green;
         margin-left: 4em;
     }
+
+    .CV:hover {
+        background-color: green;
+    }
+
 `;
 
 const LiWrapper = styled.li`
@@ -77,8 +86,8 @@ const InnerWrapper = styled.span`
     padding: 14px 16px;
     text-decoration: none;
 
-    :hover:not(.active) {
-        background-color: #111;
+    :hover:not(.CV) {
+        color: #0F0;
     }
 `;
 
