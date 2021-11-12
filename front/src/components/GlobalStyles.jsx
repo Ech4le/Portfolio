@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HomeWrapper = styled.div`
     margin-top: 2em;
-    padding-left: 8em;
+    padding-left: 7%;
     padding-top: 4em;
 
     .stat {
@@ -14,17 +14,29 @@ const HomeWrapper = styled.div`
     }
 `;
 
-const PythonIcon = styled.img`
-    width: 100px;
-    height: 100px;
-    margin-bottom: 50px;
+const HomeFirstIcon = styled.img`
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    padding: 15px;
+
+    :hover {
+        background-color: #202020;
+        transition: background-color 0.5s ease;
+    }
 `;
 
-const ReactIcon = styled.img`
+const HomeNextIcon = styled.img`
     margin-left: 70px;
-    margin-bottom: 50px;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    padding: 15px;
+
+    :hover {
+        background-color: #202020;
+        transition: background-color 0.5s ease;
+    }
 `;
 
 const Link = styled.a`
@@ -74,8 +86,8 @@ const DescriptionButton = styled.p`
 export {
     HomeWrapper,
     Link,
-    PythonIcon,
-    ReactIcon,
+    HomeFirstIcon as PythonIcon,
+    HomeNextIcon as ReactIcon,
     MainWrapper,
     NavbarHolder,
     DescriptionButton

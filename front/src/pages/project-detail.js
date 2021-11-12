@@ -59,7 +59,7 @@ const ProjectDetail = (props) => {
         <p><GithubRedirect href="#"><i style={{fontSize:'34px', marginRight: '20px'}} className="fa fa-github" aria-hidden="true" /></GithubRedirect> <strong>Github: </strong>https://github.com</p>
         <p><i style={{fontSize:'34px', marginRight: '20px'}} className="fa fa-code" aria-hidden="true"></i>
             <strong>FOSS: </strong> 
-            { obj.os ? "YES" : "NO" }
+            { obj.os ? "Yes" : "No" }
         </p>
 
         <DetailDescription>
