@@ -10,3 +10,7 @@ For backend - flask / python.
 Backend testing - unittest.  
 Frontend testing - X.  
 Server - Raspberry Pi.  
+
+## Refs
+
+Thanks to devicon.dev for awesome icons!

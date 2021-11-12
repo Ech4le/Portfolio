@@ -55,8 +55,8 @@ const Project = (props) => {
         </div>
         <div className="two">
             { 
-            props.image !== undefined 
-                ? <ProjectImage src={props.image} alt=""/> 
+            props.image !== undefined && props.image !== ""
+                ? <ProjectImage src={props.media_url + props.image} alt=""/> 
                 : ""
             }
             

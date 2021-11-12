@@ -23,10 +23,14 @@ const ProjectDetail = (props) => {
     const params = useParams();
     let navigate = useNavigate();
     const obj = props.data[params.projectId];
-    
+
+    for (let i = 0; i < obj.galery.length; i ++) {
+        obj.galery[i].url = props.media_url + obj.galery[i].image;
+    }
+
     const imageList = obj.galery.map((elem) => {
         const imgTest = new Image();
-        imgTest.src = elem.image;
+        imgTest.src = elem.url;
 
         const factor = 0.6;
         const lWidth = window.screen.width;
@@ -43,10 +47,12 @@ const ProjectDetail = (props) => {
 
         return <div key={elem.id}>
             <h3>{elem.description} - {elem.dt}</h3>
-            <img style={{ width: `${new_width}px`}} src={elem.image} alt="" />
+            <img style={{ width: `${new_width}px`}} src={elem.url} alt="" />
         </div>
     });
     
+    console.log(imageList.length)
+
     return <HomeWrapper>
         <h1>{obj.name} </h1>
         
@@ -63,12 +69,17 @@ const ProjectDetail = (props) => {
 
         <DescriptionButton style={{ marginBottom: "10px"}} onClick={() => navigate('/projects')}>Back</DescriptionButton>
 
-        <div>
-            <p><strong>Galery: </strong></p>
-            {imageList}
-        </div>
+        {
+            imageList.length === 0
+            ? ""
+            : <div>
+                <p><strong>Galery: </strong></p>
+                {imageList}
 
-        <DescriptionButton onClick={() => navigate('/projects')}>Back</DescriptionButton>
+                <DescriptionButton onClick={() => navigate('/projects')}>Back</DescriptionButton>
+            </div>
+        }
+
     </HomeWrapper>
 }
 

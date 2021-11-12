@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	BrowserRouter,
 	Routes,
@@ -9,63 +9,29 @@ import Navbar from './components/Navbar';
 import Home from './pages/home';
 import Contact from "./pages/contact";
 import Projects from './pages/projects';
-import Raspberry from "./assets/Raspberry.jpg"
 import ProjectDetail from './pages/project-detail';
 import "./App.css"
+import axios from "axios";
 
 const App = () => {
 	const [active, setActive] = useState(0);
-    const data = [
-        { 
-            id: 0, 
-            name: "Good project", 
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            link: "#",
-			os: false,
-            image: Raspberry,
-            galery: [
-                { id: 0, image: Raspberry, description: "Description of image.",    dt: "2020-01-01 11:30" },
-                { id: 1, image: Raspberry, description: "Description of image1.",   dt: "2020-01-01 11:30" },
-                { id: 2, image: Raspberry, description: "Description of image2.",   dt: "2020-01-01 11:30" },
-                { id: 3, image: Raspberry, description: "Description of image3.",   dt: "2020-01-01 11:30" },
-            ]
-        },
-        { 
-            id: 1, 
-            name: "Good project", 
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            link: "#",
-			os: false,
-            image: Raspberry,
-            galery: []
-        },
-        { 
-            id: 2, 
-            name: "Good project", 
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            link: "#",
-            image: Raspberry,
-            galery: []
-        },
-        { 
-            id: 3, 
-            name: "Good project", 
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            link: "#",
-			os: false,
-            image: Raspberry,
-            galery: []
-        },
-        { 
-            id: 4, 
-            name: "Good project", 
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            link: "#",
-			os: true,
-            image: Raspberry,
-            galery: []
-        },
-    ]
+    const [dataInput, setDataInput] = useState({});
+
+    const url = 'http://localhost:5000/';
+    const media_url = "http://localhost:5000/files/";
+
+    useEffect(() => {
+        axios.get(url)
+            .then(res => {
+                const input = res.data;
+                setDataInput({ input });
+            })
+    }, [])
+    if (dataInput.input === undefined) {
+        return <p>Loading...</p>
+    };
+
+    const data = dataInput.input.data;
 
 	let stats = {
 		os_packages:    0,
@@ -88,9 +54,9 @@ const App = () => {
 				</NavbarHolder>
 				<Routes>
 					<Route path="/" element={<Home stats={stats}/>} />
-					<Route path="/projects" element={<Projects data={data} />} />
+					<Route path="/projects" element={<Projects data={data} media_url={media_url} />} />
 					<Route path="/contact" element={<Contact />} />
-					<Route path="/projects/:projectId" element={<ProjectDetail data={data} />} />
+					<Route path="/projects/:projectId" element={<ProjectDetail data={data} media_url={media_url} />} />
 				</Routes>
 			</MainWrapper>
 		</BrowserRouter>
