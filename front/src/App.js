@@ -4,11 +4,12 @@ import {
 	Routes,
 	Route
 } from "react-router-dom";
-import { MainWrapper } from './components/GlobalStyles';
+import { MainWrapper, NavbarHolder } from './components/GlobalStyles';
 import Navbar from './components/Navbar';
 import Home from './pages/home';
 import Contact from "./pages/contact";
 import Projects from './pages/projects';
+import ProjectDetail from './pages/project-detail';
 import "./App.css"
 
 const App = () => {
@@ -29,11 +30,14 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<MainWrapper>
-				<Navbar elems={elems} active={active} setActive={setActive} />
+				<NavbarHolder>
+					<Navbar elems={elems} active={active} setActive={setActive} />
+				</NavbarHolder>
 				<Routes>
 					<Route path="/" element={<Home stats={stats}/>} />
 					<Route path="/projects" element={<Projects />} />
 					<Route path="/contact" element={<Contact />} />
+					<Route path="/projects/:projectId" element={<ProjectDetail />} />
 				</Routes>
 			</MainWrapper>
 		</BrowserRouter>

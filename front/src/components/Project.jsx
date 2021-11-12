@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { Link } from 'react-router-dom';
 
-const DescriptionButton = styled.a`
+const DescriptionButton = styled.p`
     text-decoration: none;
     color: #0F0;
     background-color: #000;
@@ -38,6 +39,7 @@ const ProjectImage = styled.img`
     height: 200px;
     float: right;
     margin-top: 2em;
+    margin-left: 1em;
 `;
 
 const Project = (props) => {    
@@ -45,7 +47,9 @@ const Project = (props) => {
         <div className="one">
             <h2>{props.name}</h2>
             <ProjectDescription>{props.description}</ProjectDescription>
-            <DescriptionButton href={props.link}>Details</DescriptionButton>
+            <Link to={props.link}>
+                <DescriptionButton>Details</DescriptionButton>
+            </Link>
         </div>
         <div className="two">
             { 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const HomeWrapper = styled.div`
+    margin-top: 2em;
     padding-left: 8em;
     padding-top: 2em;
 
@@ -36,14 +37,20 @@ const Link = styled.a`
     }
 `;
 
+const NavbarHolder = styled.div`
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+`;
+
 const NavbarWrapper = styled.ul`
     list-style-type: none;
-    margin: 0;
     padding: 0;
     overflow: hidden;
     margin-top: 1em;
     margin-left: 7em;
-    margin-right: 8em;
+    margin-right: 18em;
 
     .active span {
         color: #04FA6D;
@@ -88,5 +95,6 @@ export {
     NavbarWrapper,
     LiWrapper,
     InnerWrapper,
-    MainWrapper
+    MainWrapper,
+    NavbarHolder
 }
