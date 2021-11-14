@@ -99,7 +99,11 @@ def project_data():
 
 @app.route('/files/<path:path>')
 def get_file(path):
-    return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
+    response = send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "*")
+    response.headers.add("Access-Control-Allow-Methods", "*")
+    return response
 
 
 @app.route('/files')

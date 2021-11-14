@@ -13,8 +13,8 @@ const Home = (props) => {
         <h1>I'm Konrad Nawara.</h1>
         <p>Robotics student.</p>
         <p>Software engineer interested in Python / C++ / JS technology.</p>
-        <p>Electronics components designer, favorite boards: Arduino / Raspbrery Pi.</p>
-        <p>All code is tested and deployed on my homelab.</p>
+        <p>Electronics components designer, favorite boards: Arduino / Raspberry Pi.</p>
+        <p>All my code is tested and deployed on my homelab.</p>
         <p>I'm using self-hosted Gitea with Drone to CI / CD software.</p>
         <p>ATM learning STM32 and ROS Systems.</p>
 
